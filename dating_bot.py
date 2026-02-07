@@ -6,7 +6,7 @@ from aiogram.filters import Command
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from geopy.distance import geodesic
 from dotenv import load_dotenv
-from aiohttp import TCPConnector, ClientConnectorDNSError
+from aiohttp import TCPConnector, ClientConnectorError
 
 # ----------------- Настройка -----------------
 load_dotenv()
@@ -49,7 +49,7 @@ async def main():
     try:
         me = await bot.get_me()
         print(f"✅ Подключение успешно! Бот: @{me.username}")
-    except ClientConnectorDNSError:
+    except ClientConnectorError:
         print("❌ Не могу связаться с api.telegram.org. Проверь интернет и DNS.")
         return
     except Exception as e:
@@ -127,3 +127,4 @@ async def main():
 # ----------------- Запуск -----------------
 if __name__ == "__main__":
     asyncio.run(main())
+

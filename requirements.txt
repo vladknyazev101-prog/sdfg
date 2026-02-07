@@ -3,4 +3,5 @@ aiohttp~=3.9.0
 requests
 python-dotenv
 aiofiles~=23.2.1
+geopy
 
